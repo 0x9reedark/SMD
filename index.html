@@ -41,7 +41,7 @@ function approve(b){b.textContent='Approved ✓';b.disabled=true;b.style.opacity
   };
   const original=window.render;window.render=(view)=>{original(view);if(view==='flow'){const body=document.querySelector('.table tbody');if(body)body.innerHTML=makeRows();const sub=document.querySelector('.sub');if(sub)sub.textContent='45 active patients · mock clinic operations'}enhance()};enhance();
 })();
-<script>
+</script><script>
 (()=>{
   navItems.push(['calendar','Calendar','']);
   nav.insertAdjacentHTML('beforeend','<button data-view="calendar">Calendar</button>');
