@@ -19,4 +19,6 @@ function approve(b){b.textContent='Approved âœ“';b.disabled=true;b.style.opa
 (()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){n.nodeValue=[...n.nodeValue].map(x=>{const q=x.charCodeAt(0);if(q===0xE2||q===0x153||q===0xA6||q===0xC3||q===0x2014||q===0xB7)return '';if(q===0x201A||q===0xB1)return 'PHP ';return x}).join('')}})();
 </script><script>
 setInterval(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){n.nodeValue=[...n.nodeValue].map(x=>{const q=x.charCodeAt(0);if(q===0xE2||q===0x153||q===0xA6||q===0xC3||q===0x2014||q===0xB7)return '';if(q===0x201A||q===0xB1)return 'PHP ';return x}).join('')}},120);
+</script><script>
+(()=>{const clean=()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){let s=n.nodeValue.replace(/[^\x00-\x7F]/g,'');s=s.replace(/Search Search/g,'Search');if(s.includes('84.2k'))s=s.replace('84.2k','PHP 84.2k');n.nodeValue=s}};new MutationObserver(clean).observe(document.body,{subtree:true,childList:true,characterData:true});clean()})();
 </script></body></html>
