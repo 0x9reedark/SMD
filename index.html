@@ -94,4 +94,6 @@ window.addEventListener('load',function(){
   const revenue=()=>{const body=document.querySelector('.table tbody');if(!body)return;body.innerHTML=all.map((s,i)=>`<tr><td>${s[0]}</td><td>PAY-${String(2801+i).padStart(4,'0')}</td><td>PHP 700</td><td><span class="tag ${i%5===1?'warn':'mint'}">${i%5===1?'Needs review':'Paid'}</span></td></tr>`).join('');document.querySelector('.table thead tr').innerHTML='<th>Patient</th><th>Payment reference</th><th>Consult fee</th><th>Status</th>';document.querySelector('.sub').textContent='33 mock consult payments · PHP 23,100 gross collected'};
   const previous=window.render;window.render=(view)=>{previous(view);if(view==='flow')flow();if(view==='revenue')revenue()};
 })();
+</script><script>
+(()=>{const sync=()=>{document.querySelectorAll('.agent-card p').forEach(p=>{if(p.textContent.includes('18 payments'))p.textContent='Processed 33 consult payments and flagged 7 claims for review.'})};const old=window.render;window.render=(view)=>{old(view);sync()};sync()})();
 </script></body></html>
