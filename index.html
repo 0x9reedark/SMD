@@ -65,4 +65,20 @@ function approve(b){b.textContent='Approved ✓';b.disabled=true;b.style.opacity
   const paint=()=>{if(document.querySelector('#title')?.textContent==='Calendar'){document.querySelector('#content').innerHTML=calendar()}};
   document.addEventListener('click',e=>{if(e.target.closest('[data-view="calendar"]'))setTimeout(paint,0)});paint();
 })();
+<style>.direct-calendar{grid-template-columns:58px repeat(7,1fr);height:620px}.direct-calendar .gcal-day{min-height:620px}.gcal-dayhead{height:38px;text-align:center;color:var(--muted);font-size:10px;padding-top:10px;border-bottom:1px solid #244657}.direct-calendar .gcal-event{top:auto!important;position:relative;display:block;margin:8px 5px;left:auto;right:auto;width:calc(100% - 10px);min-height:52px}</style>
+<script>
+window.addEventListener('load',function(){
+  var b=document.querySelector('[data-view="calendar"]');
+  if(!b)return;
+  b.addEventListener('click',function(){
+    setTimeout(function(){
+      var c=document.querySelector('#content');
+      if(!c)return;
+      var days=['MON 27','TUE 28','WED 29','THU 30','FRI 31','SAT 01','SUN 02'];
+      var events=[['Ana M.','08:30','Follow-up',0],['Jose L.','09:15','New patient',0],['Rina C.','10:00','Lab results',1],['Tom P.','11:00','Teleconsult',1],['Maya C.','13:30','Annual checkup',2],['Carlo D.','14:00','Medication review',2],['Lia S.','15:15','Post-discharge',3],['Nico B.','09:00','Preventive screening',3],['Elena K.','10:30','Diabetes review',4],['Jon R.','14:30','Dermatology consult',4],['Sara C.','11:00','Follow-up',5],['Dino V.','08:30','New patient',6]];
+      var cols=days.map(function(d,i){return '<div class="gcal-day"><div class="gcal-dayhead">'+d+'</div>'+events.filter(function(e){return e[3]===i}).map(function(e){return '<button class="gcal-event" style="top:'+(40+parseInt(e[1].slice(0,2))*42)+'px" onclick="openModal(\''+e[0]+' · '+e[2]+'\',\''+e[1]+' appointment. Mock patient record.\')"><strong>'+e[0]+'</strong><small>'+e[1]+' · '+e[2]+'</small></button>'}).join('')+'</div>'}).join('');
+      c.innerHTML='<section class="gcal"><div class="gcal-toolbar"><div><h2>Care calendar</h2><div class="sub">October 27 – November 2, 2026 · 12 scheduled encounters</div></div><button class="btn primary" onclick="openModal(\'New event\',\'Mock appointment flow opened.\')">+ New event</button></div><div class="gcal-body direct-calendar"><div class="gcal-time">08:00<br><br>09:00<br><br>10:00<br><br>11:00<br><br>12:00<br><br>13:00<br><br>14:00<br><br>15:00<br><br>16:00</div>'+cols+'</div></section>';
+    },50);
+  });
+});
 </script></body></html>
