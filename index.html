@@ -17,4 +17,6 @@ function approve(b){b.textContent='Approved âœ“';b.disabled=true;b.style.opa
 (()=>{const fix=(a,b)=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode())n.nodeValue=n.nodeValue.split(a).join(b)};const c=String.fromCharCode;fix(c(0xE2,0x153,0xA6),'*');fix(c(0xE2,0x152,0x2022),'Search');fix(c(0xC3,0x2014),'x');fix(c(0xE2,0x153,0x2713),'Approved');fix(c(0xE2,0x201A,0xB1),'PHP ');fix(c(0xE2,0x2014),'-');fix(c(0xC2,0xB7),' - ');})();
 </script><script>
 (()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){n.nodeValue=[...n.nodeValue].map(x=>{const q=x.charCodeAt(0);if(q===0xE2||q===0x153||q===0xA6||q===0xC3||q===0x2014||q===0xB7)return '';if(q===0x201A||q===0xB1)return 'PHP ';return x}).join('')}})();
+</script><script>
+setInterval(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){n.nodeValue=[...n.nodeValue].map(x=>{const q=x.charCodeAt(0);if(q===0xE2||q===0x153||q===0xA6||q===0xC3||q===0x2014||q===0xB7)return '';if(q===0x201A||q===0xB1)return 'PHP ';return x}).join('')}},120);
 </script></body></html>
