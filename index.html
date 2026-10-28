@@ -96,4 +96,6 @@ window.addEventListener('load',function(){
 })();
 </script><script>
 (()=>{const sync=()=>{document.querySelectorAll('.agent-card p').forEach(p=>{if(p.textContent.includes('18 payments'))p.textContent='Processed 33 consult payments and flagged 7 claims for review.'})};const old=window.render;window.render=(view)=>{old(view);sync()};sync()})();
+</script><script>
+(()=>{const sync=()=>{const m=document.querySelectorAll('.metric strong')[3],s=document.querySelectorAll('.metric span')[3];if(m)m.textContent='PHP 23.1k';if(s){s.textContent='79% collected';s.className='up'}};const old=window.render;window.render=(view)=>{old(view);sync()};sync()})();
 </script></body></html>
