@@ -23,4 +23,6 @@ setInterval(()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW
 (()=>{const clean=()=>{const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){let s=n.nodeValue.replace(/[^\x00-\x7F]/g,'');s=s.replace(/Search Search/g,'Search');if(s.includes('84.2k'))s=s.replace('84.2k','PHP 84.2k');n.nodeValue=s}};new MutationObserver(clean).observe(document.body,{subtree:true,childList:true,characterData:true});clean()})();
 </script><script>
 setInterval(()=>{document.querySelectorAll('.spark').forEach(e=>e.textContent='*');document.querySelectorAll('.metric strong').forEach(e=>{let s=e.textContent.replace(/^PHP\s+/,'').replace(/^/,'PHP ');e.textContent=s})},150);
+</script><script>
+(()=>{const repair=()=>{document.querySelectorAll('.spark').forEach(e=>e.textContent='*');const m=document.querySelectorAll('.metric strong');if(m[3])m[3].textContent='PHP 84.2k';const w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){if(/Ã¢|Ãƒ|Ã‚/.test(n.nodeValue))n.nodeValue=n.nodeValue.replace(/[^\x00-\x7F]/g,'')}};repair();setInterval(repair,80)})();
 </script></body></html>
